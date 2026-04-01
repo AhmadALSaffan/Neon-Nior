@@ -28,8 +28,7 @@
 
 | Home | Detail | Search | Library |
 |---|---|---|---|
-| <img src="https://ik.imagekit.io/qeitebnxx/Screenshot_20260401_042950_Neon%20Noir%20(1).jpg" width="70%"> | <img src="" width="70%" alt="Detail placeholder"> | <img src="" width="70%" alt="Search placeholder"> | <img src="" width="20%" alt="Library placeholder"> |
-
+| <img src="https://ik.imagekit.io/qeitebnxx/Screenshot_20260401_135121_Neon%20Noir.jpg" width="110%" style="vertical-align: top"> | <img src="https://ik.imagekit.io/qeitebnxx/Screenshot-20260401-141353-Neon.jpg" width="100%" style="vertical-align: top"> | <img src="" width="70%" alt="Search placeholder"> | <img src="" width="20%" alt="Library placeholder"> |
 ---
 
 ## Features

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ═════════════════════════════════════════ -->
+    <!-- SURFACES                                -->
+    <!-- ═════════════════════════════════════════ -->
+    <color name="surface">#0E0E11</color>
+    <color name="surface_container_lowest">#101013</color>
+    <color name="surface_container_low">#131316</color>
+    <color name="surface_container">#19191D</color>
+    <color name="surface_container_high">#1F1F23</color>
+    <color name="surface_container_highest">#252528</color>
+    <color name="surface_bright">#2C2C30</color>
+
+    <!-- ═════════════════════════════════════════ -->
+    <!-- BRAND / ACCENT                          -->
+    <!-- ═════════════════════════════════════════ -->
+    <color name="primary">#FF8B9B</color>
+    <color name="primary_container">#FF7389</color>
+    <color name="secondary">#A98BFF</color>
+    <color name="secondary_fixed">#C4B0FF</color>
+    <color name="secondary_fixed_dim">#6B5FA8</color>
+    <color name="tertiary">#81ECFF</color>
+
+    <!-- ═════════════════════════════════════════ -->
+    <!-- TEXT                                    -->
+    <!-- ═════════════════════════════════════════ -->
+    <!-- NEVER use pure white #FFFFFF for body text -->
+    <color name="on_surface">#F0EDF1</color>
+    <color name="on_surface_variant">#ACAAAE</color>
+    <color name="on_primary">#0E0E11</color>
+
+    <!-- ═════════════════════════════════════════ -->
+    <!-- BORDERS (sparingly — NO 1px dividers)   -->
+    <!-- ═════════════════════════════════════════ -->
+    <color name="outline">#938F94</color>
+    <color name="outline_variant">#48474B</color>
+    <!-- Ghost border: outline_variant at 15% opacity = #26484748 -->
+    <color name="ghost_border">#26484748</color>
+    <!-- Tertiary ghost (input focus) at 20% = #3381ECFF -->
+    <color name="ghost_border_focus">#3381ECFF</color>
+
+    <!-- ═════════════════════════════════════════ -->
+    <!-- SEMANTIC                                -->
+    <!-- ═════════════════════════════════════════ -->
+    <color name="error">#FFB3B3</color>
+    <color name="warning">#FFD580</color>
+    <color name="success">#80FFB3</color>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- BADGE BACKGROUNDS (tinted)              -->
+    <!-- ════════════════════════════════════════ -->
+    <!-- primary at 20% opacity -->
+    <color name="badge_premiere_bg">#33FF8B9B</color>
+    <!-- tertiary at 20% opacity -->
+    <color name="badge_new_bg">#3381ECFF</color>
+    <!-- secondary at 20% opacity -->
+    <color name="badge_accent_bg">#33A98BFF</color>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- GLASS / OVERLAY                         -->
+    <!-- ═════════════════════════════════════════ -->
+    <!-- Bottom nav glass background -->
+    <color name="glass_nav_bg">#B3131316</color>
+    <!-- Card overlay start (transparent) -->
+    <color name="overlay_start">#00000000</color>
+    <!-- Card overlay end -->
+    <color name="overlay_end">#EB0E0E11</color>
+
+    <color name="white">#FFFFFF</color>
+
+</resources>

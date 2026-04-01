@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Landscape movie card — used in Continue Watching / featured horizontal lists -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="280dp"
+    android:layout_height="160dp"
+    android:layout_marginEnd="@dimen/card_gap"
+    app:cardBackgroundColor="@color/surface_container"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/elevation_card">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Backdrop poster -->
+        <ImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <!-- Gradient overlay: transparent → surface bottom -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_card_overlay" />
+
+        <!-- Progress bar at very bottom — hidden when progress == 0 -->
+        <ProgressBar
+            android:id="@+id/pb_progress"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/progress_bar_height"
+            android:layout_gravity="bottom"
+            android:max="100"
+            android:progressBackgroundTint="@color/surface_container_highest"
+            android:progressTint="@color/primary"
+            android:visibility="gone"
+            tools:progress="40"
+            tools:visibility="visible" />
+
+        <!-- Title — bottom left -->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="14dp"
+            style="@style/TextAppearance.NeonNoir.HeadlineSmall"
+            android:textColor="@color/on_surface"
+            tools:text="Blade Runner 2049" />
+
+    </FrameLayout>
+
+</androidx.cardview.widget.CardView>

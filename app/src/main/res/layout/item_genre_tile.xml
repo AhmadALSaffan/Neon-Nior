@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Genre tile — used in a 2-column GridLayoutManager on the Home screen -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_margin="@dimen/card_gap_grid"
+    app:cardBackgroundColor="@color/surface_container"
+    app:cardCornerRadius="@dimen/genre_tile_corner_radius"
+    app:cardElevation="@dimen/elevation_card">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Genre background image (loaded by Glide from a representative movie) -->
+        <ImageView
+            android:id="@+id/iv_genre_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <!-- Dark gradient overlay -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_card_overlay" />
+
+        <!-- Genre label — bottom left -->
+        <TextView
+            android:id="@+id/tv_genre_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:padding="12dp"
+            style="@style/TextAppearance.NeonNoir.HeadlineMedium"
+            android:textColor="@color/on_surface"
+            tools:text="SCI-FI" />
+
+    </FrameLayout>
+
+</androidx.cardview.widget.CardView>

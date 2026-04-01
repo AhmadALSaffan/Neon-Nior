@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Active tab → primary pink -->
+    <item android:color="@color/primary" android:state_checked="true" />
+    <!-- Inactive tab → muted purple-grey -->
+    <item android:color="@color/secondary_fixed_dim" />
+</selector>

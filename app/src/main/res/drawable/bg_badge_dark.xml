@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dark semi-transparent badge background — used for IMDb rating overlay on poster cards -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- surface at ~75% opacity -->
+    <solid android:color="#BF0E0E11" />
+    <corners android:radius="@dimen/radius_sm" />
+</shape>

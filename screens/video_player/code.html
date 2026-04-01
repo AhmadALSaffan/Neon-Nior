@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neon Genesis - Immersive Player</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#63001e",
+              "on-background": "#f0edf1",
+              "background": "#0e0e11",
+              "secondary-fixed": "#d9caff",
+              "inverse-on-surface": "#555458",
+              "secondary": "#a98bff",
+              "surface-dim": "#0e0e11",
+              "on-error-container": "#ffb2b9",
+              "inverse-primary": "#be0042",
+              "error-dim": "#d73357",
+              "on-tertiary-container": "#004d57",
+              "surface-container-lowest": "#000000",
+              "surface-variant": "#25252a",
+              "primary": "#ff8b9b",
+              "tertiary-fixed": "#00e3fd",
+              "primary-dim": "#e31754",
+              "secondary-fixed-dim": "#ccb9ff",
+              "on-secondary": "#270069",
+              "primary-container": "#ff7389",
+              "inverse-surface": "#fcf8fd",
+              "on-error": "#490013",
+              "primary-fixed-dim": "#ff5676",
+              "tertiary-container": "#00e3fd",
+              "on-primary-fixed": "#000000",
+              "surface-bright": "#2c2c30",
+              "secondary-container": "#6817f4",
+              "surface-container-low": "#131316",
+              "on-tertiary-fixed": "#003840",
+              "tertiary": "#81ecff",
+              "on-secondary-fixed-variant": "#5e00e6",
+              "on-primary-container": "#4d0016",
+              "surface-container": "#19191d",
+              "error": "#ff6e84",
+              "secondary-dim": "#834fff",
+              "tertiary-dim": "#00d4ec",
+              "primary-fixed": "#ff7389",
+              "on-primary-fixed-variant": "#5f001d",
+              "on-surface": "#f0edf1",
+              "surface": "#0e0e11",
+              "on-tertiary": "#005762",
+              "tertiary-fixed-dim": "#00d4ec",
+              "surface-container-high": "#1f1f23",
+              "on-tertiary-fixed-variant": "#005762",
+              "on-secondary-container": "#f4ecff",
+              "outline": "#767579",
+              "on-surface-variant": "#acaaae",
+              "error-container": "#a70138",
+              "outline-variant": "#48474b",
+              "on-secondary-fixed": "#3e009d",
+              "surface-container-highest": "#25252a",
+              "surface-tint": "#ff8b9b"
+            },
+            fontFamily: {
+              "headline": ["Epilogue"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .video-gradient-overlay {
+            background: linear-gradient(0deg, rgba(14,14,17,0.9) 0%, rgba(14,14,17,0) 30%, rgba(14,14,17,0) 70%, rgba(14,14,17,0.9) 100%);
+        }
+        .progress-glow {
+            box-shadow: 0 0 15px rgba(255, 139, 155, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body overflow-hidden">
+<!-- Immersive Video Canvas -->
+<div class="fixed inset-0 z-0 bg-surface-container-lowest">
+<img alt="Neon Genesis" class="w-full h-full object-cover opacity-80 scale-105 blur-[2px]" data-alt="cinematic wide shot of a futuristic cyberpunk city with vibrant neon pink and teal lights reflected in rain-slicked streets at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtHFs2wJRY-c_--1GeFzHTOvZTxY64ZqGI2P0nxrOs-gvWzLdwBBWGPtmlKJmbW9UV45TSpyw8b2ZmqtW5WqNkB9iNtslqjFkBjOFrNFxWk6ItsawFT4cZbFFXz_4SQA7iLbDNXOuaOmyjJerAQyzfg1zgmTDAlqlIPfMlbtkT3Ioq98SpaNOv3I4ka76MvdT7yJkYjbGJrjNQzQZLbmeHp0kGCFmGAxi57i2D3nShChA7MSe8ym38dYgKuGfX0n5iDUYieGXPLAc"/>
+<div class="absolute inset-0 video-gradient-overlay z-10"></div>
+</div>
+<!-- UI Overlay Shell -->
+<div class="relative z-20 flex flex-col h-screen w-full">
+<!-- Header / TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex items-center h-20 px-6 w-full bg-transparent">
+<div class="flex items-center gap-6">
+<button class="flex items-center justify-center w-12 h-12 rounded-full hover:bg-white/10 transition-colors duration-300 scale-95 active:scale-90 transition-transform text-[#ff8b9b]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<span class="font-['Epilogue'] font-bold text-lg text-[#ff8b9b] tracking-tight">Neon Genesis</span>
+<span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] text-on-surface-variant opacity-60">Chapter 4: The Synthetic Dawn</span>
+</div>
+</div>
+<div class="ml-auto flex items-center gap-4">
+<button class="px-3 py-1 text-[10px] font-bold tracking-widest border border-outline-variant/30 rounded-lg text-tertiary uppercase">4K HDR</button>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Centered Main Action -->
+<main class="flex-grow flex items-center justify-center">
+<button class="group relative flex items-center justify-center w-28 h-28 rounded-full bg-primary/10 backdrop-blur-md border border-primary/20 hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_50px_rgba(255,139,155,0.2)]">
+<div class="absolute inset-0 rounded-full bg-primary opacity-5 group-hover:opacity-10 transition-opacity"></div>
+<span class="material-symbols-outlined text-primary text-6xl translate-x-1" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</main>
+<!-- Bottom Controls / BottomNavBar Logic -->
+<footer class="fixed bottom-0 w-full z-50 flex flex-col items-center">
+<!-- Progress Bar Area -->
+<div class="w-full px-12 mb-8">
+<div class="flex items-center justify-between mb-3 font-['Manrope'] text-[11px] font-semibold tracking-tighter text-on-surface-variant">
+<span>01:12:45</span>
+<span class="text-tertiary">The Synthetic Dawn</span>
+<span>02:45:00</span>
+</div>
+<div class="relative w-full h-1.5 bg-surface-container-highest rounded-full overflow-visible group cursor-pointer">
+<!-- Progress Fill -->
+<div class="absolute top-0 left-0 h-full w-[44%] bg-gradient-to-r from-primary-dim to-primary rounded-full progress-glow"></div>
+<!-- Seeker Handle -->
+<div class="absolute top-1/2 left-[44%] -translate-y-1/2 w-4 h-4 bg-on-surface rounded-full shadow-lg scale-0 group-hover:scale-100 transition-transform duration-200"></div>
+</div>
+</div>
+<!-- Player Controls Shell -->
+<div class="fixed bottom-0 w-full z-50 flex justify-center items-center gap-12 px-10 bg-transparent backdrop-blur-xl h-32 pb-8 shadow-[0_-20px_50px_rgba(169,139,255,0.06)]">
+<!-- Left Secondary Controls -->
+<div class="absolute left-10 flex items-center gap-6 text-on-surface-variant">
+<button class="hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined" data-icon="volume_up">volume_up</span>
+</button>
+<button class="hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined" data-icon="subtitles">subtitles</span>
+</button>
+</div>
+<!-- Main Playback Navigation -->
+<div class="flex items-center gap-10">
+<button class="text-[#f0edf1] opacity-70 hover:text-[#81ecff] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined text-3xl" data-icon="fast_rewind">fast_rewind</span>
+</button>
+<button class="text-[#f0edf1] opacity-70 hover:text-[#81ecff] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined text-3xl" data-icon="replay_10">replay_10</span>
+</button>
+<!-- Minimized Center Play (Contextual) -->
+<button class="text-[#ff8b9b] scale-125 transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined text-5xl" data-icon="play_circle" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+<button class="text-[#f0edf1] opacity-70 hover:text-[#81ecff] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined text-3xl" data-icon="forward_10">forward_10</span>
+</button>
+<button class="text-[#f0edf1] opacity-70 hover:text-[#81ecff] transition-all active:scale-90 duration-200">
+<span class="material-symbols-outlined text-3xl" data-icon="fast_forward">fast_forward</span>
+</button>
+</div>
+<!-- Right Secondary Controls -->
+<div class="absolute right-10 flex items-center gap-6 text-on-surface-variant">
+<button class="hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined" data-icon="picture_in_picture_alt">picture_in_picture_alt</span>
+</button>
+<button class="hover:text-tertiary transition-colors">
+<span class="material-symbols-outlined" data-icon="fullscreen">fullscreen</span>
+</button>
+</div>
+</div>
+</footer>
+</div>
+<!-- Background Atmospheric Particles (Pure CSS Decoration) -->
+<div class="fixed inset-0 pointer-events-none z-5">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary/10 blur-[150px] rounded-full"></div>
+</div>
+</body></html>

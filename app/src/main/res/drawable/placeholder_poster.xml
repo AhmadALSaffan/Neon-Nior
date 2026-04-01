@@ -1,0 +1,29 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background fill -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#1A1A2E" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <!-- Subtle gradient overlay -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="135"
+                android:startColor="#2A2A4A"
+                android:endColor="#0D0D1A"
+                android:type="linear" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <!-- Center film-strip icon placeholder via inset -->
+    <item
+        android:gravity="center"
+        android:width="40dp"
+        android:height="40dp">
+        <shape android:shape="oval">
+            <solid android:color="#33FFFFFF" />
+        </shape>
+    </item>
+</layer-list>

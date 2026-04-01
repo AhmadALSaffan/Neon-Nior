@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ═════════════════════════════════════════ -->
+    <!-- SPACING (4pt base grid)     -->
+    <!-- ════════════════════════════════════════ -->
+    <dimen name="spacing_1">4dp</dimen>
+    <dimen name="spacing_2">8dp</dimen>
+    <dimen name="spacing_3">12dp</dimen>
+    <dimen name="spacing_4">16dp</dimen>
+    <dimen name="spacing_5">20dp</dimen>
+    <dimen name="spacing_6">24dp</dimen>
+    <dimen name="spacing_7">28dp</dimen>
+    <dimen name="spacing_8">32dp</dimen>
+    <dimen name="spacing_10">40dp</dimen>
+    <dimen name="spacing_12">48dp</dimen>
+    <dimen name="spacing_14">56dp</dimen>
+    <dimen name="spacing_16">64dp</dimen>
+
+    <!-- Section gaps (replaces divider lines per DESIGN.md) -->
+    <dimen name="section_gap">32dp</dimen>
+    <dimen name="row_gap">20dp</dimen>
+    <dimen name="card_gap">8dp</dimen>
+    <dimen name="card_gap_grid">12dp</dimen>
+
+    <!-- Screen horizontal padding -->
+    <dimen name="screen_padding_horizontal">16dp</dimen>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- BORDER RADIUS               -->
+    <!-- ════════════════════════════════════════ -->
+    <dimen name="radius_sm">6dp</dimen>
+    <dimen name="radius_md">12dp</dimen>
+    <dimen name="radius_lg">16dp</dimen>
+    <dimen name="radius_xl">24dp</dimen>
+    <dimen name="radius_full">999dp</dimen>   <!-- Pills, CTA buttons -->
+
+    <!-- ═════════════════════════════════════════ -->
+    <!-- COMPONENT SIZES             -->
+    <!-- ═══════════════════════════════════════ -->
+    <dimen name="button_height">52dp</dimen>
+    <dimen name="button_height_compact">44dp</dimen>
+    <dimen name="input_height">56dp</dimen>
+    <dimen name="bottom_nav_height">64dp</dimen>
+    <dimen name="avatar_sm">32dp</dimen>
+    <dimen name="avatar_md">40dp</dimen>
+    <dimen name="avatar_lg">80dp</dimen>
+    <dimen name="progress_bar_height">3dp</dimen>
+    <dimen name="card_corner_radius">12dp</dimen>
+    <dimen name="genre_tile_corner_radius">12dp</dimen>
+
+    <!-- ═════════════════════════════════════════ -->
+    <!-- ELEVATION (tonal layering)  -->
+    <!-- ════════════════════════════════════════ -->
+    <!-- We use tonal layering, not drop shadows.  -->
+    <!-- Only floating modals get elevation.       -->
+    <dimen name="elevation_card">0dp</dimen>
+    <dimen name="elevation_modal">4dp</dimen>
+    <dimen name="elevation_bottom_nav">8dp</dimen>
+
+</resources>

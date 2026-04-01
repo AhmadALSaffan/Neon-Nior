@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/nav_home">
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- HOME                                    -->
+    <!-- ═══════════════════════════════════════ -->
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.neonnoir.presentation.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_home_to_detail"
+            app:destination="@id/nav_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_home_to_search"
+            app:destination="@id/nav_search"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out" />
+
+        <!-- keyword argument passed when navigating from genre tile -->
+        <argument
+            android:name="keyword"
+            app:argType="string"
+            android:defaultValue="" />
+
+    </fragment>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- SEARCH                                  -->
+    <!-- ═══════════════════════════════════════ -->
+    <fragment
+        android:id="@+id/nav_search"
+        android:name="com.neonnoir.presentation.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/action_search_to_detail"
+            app:destination="@id/nav_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <argument
+            android:name="keyword"
+            app:argType="string"
+            android:defaultValue="" />
+
+    </fragment>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- MOVIE DETAIL                            -->
+    <!-- ═══════════════════════════════════════ -->
+    <fragment
+        android:id="@+id/nav_detail"
+        android:name="com.neonnoir.presentation.detail.DetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail">
+
+        <!-- Required: IMDB ID of the movie to display -->
+        <argument
+            android:name="imdbId"
+            app:argType="string" />
+
+    </fragment>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- LIBRARY                                 -->
+    <!-- ═══════════════════════════════════════ -->
+    <fragment
+        android:id="@+id/nav_library"
+        android:name="com.neonnoir.presentation.library.LibraryFragment"
+        android:label="Library"
+        tools:layout="@layout/fragment_library">
+
+        <action
+            android:id="@+id/action_library_to_detail"
+            app:destination="@id/nav_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- PROFILE                                 -->
+    <!-- ═══════════════════════════════════════ -->
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.neonnoir.presentation.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Noir - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#acaaae",
+              "on-background": "#f0edf1",
+              "error-container": "#a70138",
+              "on-surface": "#f0edf1",
+              "outline": "#767579",
+              "surface-bright": "#2c2c30",
+              "secondary-container": "#6817f4",
+              "secondary-fixed": "#d9caff",
+              "error-dim": "#d73357",
+              "tertiary-fixed": "#00e3fd",
+              "tertiary": "#81ecff",
+              "surface-container-highest": "#25252a",
+              "on-secondary-fixed": "#3e009d",
+              "secondary-fixed-dim": "#ccb9ff",
+              "surface-dim": "#0e0e11",
+              "on-secondary-container": "#f4ecff",
+              "surface-container-lowest": "#000000",
+              "on-primary-fixed-variant": "#5f001d",
+              "primary": "#ff8b9b",
+              "surface-tint": "#ff8b9b",
+              "tertiary-fixed-dim": "#00d4ec",
+              "inverse-on-surface": "#555458",
+              "tertiary-dim": "#00d4ec",
+              "inverse-primary": "#be0042",
+              "secondary": "#a98bff",
+              "primary-fixed-dim": "#ff5676",
+              "on-tertiary-fixed": "#003840",
+              "on-tertiary": "#005762",
+              "tertiary-container": "#00e3fd",
+              "surface-variant": "#25252a",
+              "on-primary": "#63001e",
+              "on-secondary": "#270069",
+              "on-primary-fixed": "#000000",
+              "inverse-surface": "#fcf8fd",
+              "error": "#ff6e84",
+              "on-error-container": "#ffb2b9",
+              "surface": "#0e0e11",
+              "on-secondary-fixed-variant": "#5e00e6",
+              "surface-container-high": "#1f1f23",
+              "surface-container": "#19191d",
+              "on-tertiary-fixed-variant": "#005762",
+              "on-tertiary-container": "#004d57",
+              "outline-variant": "#48474b",
+              "primary-container": "#ff7389",
+              "secondary-dim": "#834fff",
+              "on-error": "#490013",
+              "background": "#0e0e11",
+              "primary-fixed": "#ff7389",
+              "primary-dim": "#e31754",
+              "on-primary-container": "#4d0016",
+              "surface-container-low": "#131316"
+            },
+            fontFamily: {
+              "headline": ["Epilogue"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .hero-gradient {
+            background: linear-gradient(to top, #0e0e11 0%, rgba(14, 14, 17, 0.4) 50%, rgba(14, 14, 17, 0) 100%);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 139, 155, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e11]/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full no-border space-y-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#ff8b9b] cursor-pointer active:scale-90 transition-transform" data-icon="menu">menu</span>
+<h1 class="text-2xl font-black bg-gradient-to-r from-[#ff8b9b] to-[#a98bff] bg-clip-text text-transparent font-headline tracking-tighter">Lumina Noir</h1>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-8 font-label text-sm font-bold tracking-widest uppercase">
+<a class="text-[#ff8b9b] hover:text-[#ff8b9b] transition-colors duration-300" href="#">Home</a>
+<a class="text-[#acaaae] hover:text-[#ff8b9b] transition-colors duration-300" href="#">Search</a>
+<a class="text-[#acaaae] hover:text-[#ff8b9b] transition-colors duration-300" href="#">My Movies</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#acaaae] md:hidden" data-icon="search">search</span>
+<div class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary/20">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="Portrait of a modern young professional with soft cinematic lighting and a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDavxha804tOSppacrzNWhtYSYL-gSxCPuEc3cEyTugCUdcb7q3gRe4-PjpGWCeGXd2M3ajQ7FGrvUAwk2YaR0IzVR4EzmUFkiWqC3bvezP1hl_rdH0N1bUk4RotLj8xs2NNVeJq78f_7xgaO7oo-NQy-pdabcDY7f-q_IlUNTuJOOzB6RFQ2CRVWhcQOn6Cp2BnACi7KZdy5BZgzWQBlFTT659wN2PozparQdtdYxKi8pER1T9Se36eT-q4Ol75Dgzr9DCKTEg7ak"/>
+</div>
+</div>
+</header>
+<main class="pb-32">
+<!-- High-Impact Hero Section -->
+<section class="relative h-[751px] w-full overflow-hidden">
+<div class="absolute inset-0">
+<img alt="Featured Movie" class="w-full h-full object-cover" data-alt="Cinematic wide shot of a futuristic neon city street at night with heavy rain and glowing magenta reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg--lIEkyGwc6VBWUidnRuosQAaI1Vei-LHw3Ol2D2hkz8bGj7f8veXR3ShEIZJ_uDB8UEM1gGbZI89LMSEgtySE4N7UxfKNnj7wX0xVbLUdvOU4DsIGx8I7KYrJSZQ5bbUpWIZIaBwmTDO9wWPhiBpHeGjuEf0aIToWHFi2EGji7HALEMqlu1k4yOmpcW_ew2Bvigy_8imNaaWna7_SnFePbHpMfjEPsUaSjLedK8YwffKxF6ZDPFRU1Ul9MiVd1lTTHTa1wuhoM"/>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent"></div>
+</div>
+<div class="relative h-full container mx-auto px-6 flex flex-col justify-end pb-20 max-w-7xl">
+<div class="max-w-2xl space-y-6">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-[0.2em] border border-primary/30">Premiere</span>
+<span class="text-on-surface-variant text-sm font-medium tracking-wide">Sci-Fi • 2h 45m • 2024</span>
+</div>
+<h2 class="text-6xl md:text-8xl font-black font-headline tracking-tighter text-on-surface leading-[0.9] text-glow">
+                        NEON<br/><span class="text-primary">GENESIS</span>
+</h2>
+<p class="text-on-surface-variant text-lg max-w-lg leading-relaxed font-body">
+                        In a world where consciousness can be uploaded to the cloud, one rebel discovers a glitch that could unravel the fabric of digital reality.
+                    </p>
+<div class="flex flex-wrap items-center gap-4 pt-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                            Watch Now
+                        </button>
+<button class="bg-surface-container-high/60 backdrop-blur-md text-on-surface px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-surface-bright transition-colors active:scale-95 border border-outline-variant/10">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                            Watchlist
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Area -->
+<div class="space-y-16 mt-12 px-6 max-w-7xl mx-auto">
+<!-- Trending Now: Carousel -->
+<section>
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="text-3xl font-black font-headline tracking-tight text-on-surface">Trending Now</h3>
+<p class="text-on-surface-variant font-medium text-sm">Most watched in your region</p>
+</div>
+<a class="text-primary text-sm font-bold uppercase tracking-widest flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                        View All <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="flex gap-6 overflow-x-auto hide-scrollbar pb-4 snap-x">
+<!-- Movie Card 1 -->
+<div class="min-w-[280px] group snap-start cursor-pointer">
+<div class="relative aspect-[2/3] rounded-2xl overflow-hidden mb-4 bg-surface-container">
+<img alt="The Silent Echo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Moody movie poster aesthetic of a lone figure standing in a foggy forest with ethereal blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKQIuPP_2_k56gVsn6hFRwPrfnnj-YpMACrPt4qYwTZi8zJjQqe0jaFI8Sc--5JJ5rE1EA4HNcoe9u4liiDKKG3MMO9jTH8tUZfb3lnOpUCH8rI9_c_RGgLML87Vz7SZ3galIo47G331cggtgaV8Cw4luov2FR8iaT80lDzqBarFiXG6iLhs_EBleVg0i0OpBZOZGX_GoFlknrPsrkWzm1Sx39z73ePD_iQ1_i0mgdRq34z6Ro5NrU5Z6XsN4aShxSyqpGu8NMpi8"/>
+<div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1 text-[12px] font-bold">
+<span class="material-symbols-outlined text-[#ffc107] text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                8.4
+                            </div>
+</div>
+<h4 class="text-lg font-bold font-headline text-on-surface truncate group-hover:text-primary transition-colors">The Silent Echo</h4>
+<p class="text-on-surface-variant text-xs font-medium">Psychological • Thriller</p>
+</div>
+<!-- Movie Card 2 -->
+<div class="min-w-[280px] group snap-start cursor-pointer">
+<div class="relative aspect-[2/3] rounded-2xl overflow-hidden mb-4 bg-surface-container">
+<img alt="Midnight Circuit" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="High-octane car chase scene at night in a cybernetic city with pink and cyan light trails" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdVKIfUHYluX-JvWrRoYMXtmoV08YA3nuPYaDIxIzp_Z8lY7fFJ4UNO8mOYukKClyJahS1OV6zYyH1Ueq-74uDma4MVww11TADxENoCKN_VwPURVUyyI6EwLe60evLhPncDSbi1OnRANkS9Gwf6Vw9EbR-xLK2672y8c-Rbz2OEBfH62h3lUECoCJ1gbM5ojZm5bvvz6-qRzcjlY2BPknqXozaZAPeyTvGmk2CqRUUHdiD6mL-3G-owyDFO_f09zLc9hjt2jBXfPA"/>
+<div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1 text-[12px] font-bold">
+<span class="material-symbols-outlined text-[#ffc107] text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                7.9
+                            </div>
+</div>
+<h4 class="text-lg font-bold font-headline text-on-surface truncate group-hover:text-primary transition-colors">Midnight Circuit</h4>
+<p class="text-on-surface-variant text-xs font-medium">Action • Cyberpunk</p>
+</div>
+<!-- Movie Card 3 -->
+<div class="min-w-[280px] group snap-start cursor-pointer">
+<div class="relative aspect-[2/3] rounded-2xl overflow-hidden mb-4 bg-surface-container">
+<img alt="Solaris Reach" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Breathtaking space scene with a massive golden star and a tiny spacecraft silhouetted against the flare" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPXu68kjJDQBqU6lsBcTQtxXMykIb-JftWL_GyMUMMiCEvRbMjt0VbjIG8VsyOPUjT_YZJ0OKOz3oaZlJvRAs6tltBQYQMDEZyBxR7VEmH4EbPuwyIsDGanR5LIB4p16sT27LDM6E2D_tJhDQQNKocxrLpeBuaBsgBuELL5310g5qk23Ucfof5qt-ldulaqApXiSqBrQlYGUQW_RPs88P4Uj5lHnJbGo5NgPN0TtKUZk8ergb8Js73vxln43hR1AKYNiX3lWAkdNA"/>
+<div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1 text-[12px] font-bold">
+<span class="material-symbols-outlined text-[#ffc107] text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                9.1
+                            </div>
+</div>
+<h4 class="text-lg font-bold font-headline text-on-surface truncate group-hover:text-primary transition-colors">Solaris Reach</h4>
+<p class="text-on-surface-variant text-xs font-medium">Adventure • Sci-Fi</p>
+</div>
+<!-- Movie Card 4 -->
+<div class="min-w-[280px] group snap-start cursor-pointer">
+<div class="relative aspect-[2/3] rounded-2xl overflow-hidden mb-4 bg-surface-container">
+<img alt="The Last Kingdom" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Epic medieval landscape with a crumbling stone castle on a cliffside during a dramatic purple sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzD767uTSMN3N8zs83l3LMXf3jksl7lFnV1TEofq8FhsTrLkG5oM08-LvS5dklB6MDsxV3xuG6YUaJfyKVboCzd0kUaivVzLCq--KHFmo4-ZSmqA-4l1Ocl4kJOEIqPQcDaSidUjKJCrbB8Ivj-8qnk13zQ838g0FfFzZu6AdHims2eoxQS4vrJ8ZeKbJyTED4H4UYHmTu8i-dBnBgskc_OWCP3J7UHxev7baZ9qt70DDDKM8Lu6WrZiXhoIIk5vTv2jZAYbXtQBI"/>
+<div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg flex items-center gap-1 text-[12px] font-bold">
+<span class="material-symbols-outlined text-[#ffc107] text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                8.8
+                            </div>
+</div>
+<h4 class="text-lg font-bold font-headline text-on-surface truncate group-hover:text-primary transition-colors">The Last Kingdom</h4>
+<p class="text-on-surface-variant text-xs font-medium">Fantasy • Drama</p>
+</div>
+</div>
+</section>
+<!-- Top Genres: Bento-style Cards -->
+<section>
+<div class="mb-8">
+<h3 class="text-3xl font-black font-headline tracking-tight text-on-surface">Top Genres</h3>
+<p class="text-on-surface-variant font-medium text-sm">Curation based on your mood</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="relative h-40 rounded-2xl overflow-hidden group cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-br from-[#ff8b9b] to-[#a98bff] opacity-40 group-hover:opacity-60 transition-opacity"></div>
+<img alt="Sci-Fi" class="w-full h-full object-cover grayscale mix-blend-overlay" data-alt="Futuristic robotic arm reaching out in a dark lab with sharp geometric shapes and cool lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYAf_WuHBzs6BPu1AR4HLaiqGnD3iSKSNB-VQrMDm6KeBXejjFZOKdTQYT7RQW_qb2mX4tuw4Fpl6OAgPfEhpaMjCr4cRdeKNCWicYFWHFrDVjwKIrs2p81_pHYwP8qDISra33g9ST-kHOGskLyMjWQaC5A7zrS4UqCiyBNm5zQGHhoQ4SArGeIH5PuteWpQBHMBriMEZwr1sbvLV5nrm7mju6TonjM8Ul03UnIH2qVXBE9TvG5oKQmGWIX504gkVKV0UtjdeJ3hM"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-2xl font-black font-headline tracking-widest uppercase">Sci-Fi</span>
+</div>
+</div>
+<div class="relative h-40 rounded-2xl overflow-hidden group cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-br from-[#a98bff] to-[#81ecff] opacity-40 group-hover:opacity-60 transition-opacity"></div>
+<img alt="Horror" class="w-full h-full object-cover grayscale mix-blend-overlay" data-alt="A creepy abandoned hallway in a Victorian mansion with long shadows and dim flickering light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPIKxgF2DuxH4i1uHIKXcaWlV4Aii5zQPf-FZCVgAWL8WxNaoL4KUJ2SAzp0ym0fktMLZjYqtpczvnjCyqF5X2lZRKYuxmeXtmKaKjFVfE2gaZZvkD4Oc7ArtnQl6k4f-BTxetyIdw2vJkCI4p6WNe5PS8i1ZD-Fpr8XM2353yDzKAshatHDmXDLm7SeAKXfcuUB1keMREQ6Cur1CWIDpSFGeT8e57wwoinrvJw1JtlH6gUlRquwSlf_7yQDWOr4Ch-xzxDawno54"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-2xl font-black font-headline tracking-widest uppercase">Horror</span>
+</div>
+</div>
+<div class="relative h-40 rounded-2xl overflow-hidden group cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-br from-[#81ecff] to-[#ff8b9b] opacity-40 group-hover:opacity-60 transition-opacity"></div>
+<img alt="Cinema" class="w-full h-full object-cover grayscale mix-blend-overlay" data-alt="Close-up of a vintage 35mm film projector lens with light dust particles dancing in the beam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE-A56CuL5Rv-og98rXC_J09Ysm-K0_bMC1Hr58zq29SPzI0r_VXhKzxOYKYsu2-P_V771Zfg4W7wl59CjVC_UPcs_-sMM6_gzkm99-gHs4CDFFgWHxyxRO-MasD6Sns-rWwEFv8O81jpElgoJlf7iw41z-f8LBmMouU2Yp51GAvq0w-E-UzrDo9WkM1VniLL_ipZgu7YnizYipqNHLm6uDjDFTms90NVCyZPjDzSH9P8JfGbcNMSmt8g9ER2NuhE7-3EkpSWNQPo"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-2xl font-black font-headline tracking-widest uppercase">Drama</span>
+</div>
+</div>
+<div class="relative h-40 rounded-2xl overflow-hidden group cursor-pointer">
+<div class="absolute inset-0 bg-gradient-to-br from-[#ff8b9b] to-[#6817f4] opacity-40 group-hover:opacity-60 transition-opacity"></div>
+<img alt="Action" class="w-full h-full object-cover grayscale mix-blend-overlay" data-alt="A high-speed motorcycle blurred in motion against a backdrop of glowing city lights at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpJTbFeufsIAoMbAq4cibYHHJzPqRTvWyyPiqljNPS78guvW9UloErWCGSos_kwTbBvBp6p-iPRVCjbpWWflw3V7vS0qW9Ze2YUsMiIe2krcG16D576lHgOcWOWau8pKjPTGHdBt-KlCG0lccZGMmqX6jvVXn6pJ4f-uoqEPzZKemSjE5xhJhGEqUnMT-MwrfbXV37MfKU3gm93p4Cu7FqzLxKkjXsXD1GYqE0Q-mYqS3lQT-bopDz2aC5zH5ngAo8Y3q9Siyj7IA"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-2xl font-black font-headline tracking-widest uppercase">Action</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Recently Added: Horizontal List -->
+<section>
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="text-3xl font-black font-headline tracking-tight text-on-surface">Recently Added</h3>
+<p class="text-on-surface-variant font-medium text-sm">New arrivals this week</p>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto hide-scrollbar pb-4 snap-x">
+<!-- Recently Card 1 -->
+<div class="min-w-[400px] h-[220px] rounded-2xl overflow-hidden relative group cursor-pointer snap-start">
+<img alt="Under the Veil" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Cinematic close-up of a masked face in profile, with water droplets and harsh red backlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUb7NIszTlOfbJXEgD8Nm2K2aVZ86_mb-PWsyjTu5L_FRL6cmpNcm-w9zJRJcc4kHnF5uvaGaKG-rz6IM6E-NQrKiSE6URSXadhOynq6BacrCr-l3Tks_baxxV97hF05I42Ik14B89Bc-exsienG8JutsOHfWmwelpeLALZCZSbTdxH0-St3ktMsb45RaJb_dNEzKaaRsgEQb2oDlPjMVGy09t1Vi50VXjw1jKd2wTDaAyMtbwKuwccHQZ7OhHK8sOFr0Y--EWAJM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<h4 class="text-xl font-black font-headline">Under the Veil</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-primary text-xs font-bold px-2 py-0.5 rounded-md bg-primary/10">NEW</span>
+<span class="text-on-surface-variant text-xs">Mystery • 2024</span>
+</div>
+</div>
+</div>
+<!-- Recently Card 2 -->
+<div class="min-w-[400px] h-[220px] rounded-2xl overflow-hidden relative group cursor-pointer snap-start">
+<img alt="The Lens" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Artistic shot of a camera lens reflecting a sprawling modern city landscape under a sunset sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5zR5DKGVMs54H3cB6IeMybmgmvktQXyHDC-9R5RucpqVKl-vFq0GbzTdkD8wZ_wKHmOoBLUqbIsMPVXQ1x88ggWJGEEOf1X1lW70UCI0uU2QfOsipDW7unS97o3x2t4qtUxzuzgOsXA7AhyRCEPtoa7XfwknWIystttUv51DqFGaHxG4KQJFjoTt3S6CsI3wd5wcZLhevBDnDK470RhMUapQEvlt7fRDhcw0Nk9zaWIZKyEqEwZrJLjefzeXIrgTVqfdP-nwrvLA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6">
+<h4 class="text-xl font-black font-headline">The Lens</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-primary text-xs font-bold px-2 py-0.5 rounded-md bg-primary/10">NEW</span>
+<span class="text-on-surface-variant text-xs">Documentary • 2024</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#131316]/80 backdrop-blur-2xl rounded-t-3xl shadow-[0_-4px_20px_rgba(169,139,255,0.06)] no-border">
+<div class="flex flex-col items-center justify-center text-[#ff8b9b] bg-[#ff8b9b]/10 rounded-xl px-4 py-2 active:scale-95 transition-all duration-200 cursor-pointer">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Manrope'] text-[10px] font-medium tracking-wide uppercase">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#acaaae] px-4 py-2 hover:bg-[#1f1f23] transition-all active:scale-95 duration-200 cursor-pointer">
+<span class="material-symbols-outlined mb-1">search</span>
+<span class="font-['Manrope'] text-[10px] font-medium tracking-wide uppercase">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#acaaae] px-4 py-2 hover:bg-[#1f1f23] transition-all active:scale-95 duration-200 cursor-pointer">
+<span class="material-symbols-outlined mb-1">movie</span>
+<span class="font-['Manrope'] text-[10px] font-medium tracking-wide uppercase">My Movies</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#acaaae] px-4 py-2 hover:bg-[#1f1f23] transition-all active:scale-95 duration-200 cursor-pointer">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Manrope'] text-[10px] font-medium tracking-wide uppercase">Profile</span>
+</div>
+</nav>
+</body></html>

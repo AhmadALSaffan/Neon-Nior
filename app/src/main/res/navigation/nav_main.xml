@@ -29,12 +29,6 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out" />
 
-        <!-- keyword argument passed when navigating from genre tile -->
-        <argument
-            android:name="keyword"
-            app:argType="string"
-            android:defaultValue="" />
-
     </fragment>
 
     <!-- ═══════════════════════════════════════ -->
@@ -70,10 +64,25 @@
         android:label="Detail"
         tools:layout="@layout/fragment_detail">
 
-        <!-- Required: IMDB ID of the movie to display -->
+        <!-- Required: IMDB ID passed from every entry point -->
         <argument
             android:name="imdbId"
             app:argType="string" />
+
+        <!--
+            Self-referencing action so clicking a related movie replaces
+            the current detail screen instead of stacking infinitely.
+            This is what generates DetailFragmentDirections.actionDetailSelf().
+        -->
+        <action
+            android:id="@+id/action_detail_self"
+            app:destination="@id/nav_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/nav_detail"
+            app:popUpToInclusive="true" />
 
     </fragment>
 

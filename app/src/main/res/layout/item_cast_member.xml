@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <!-- Circular initials avatar -->
+    <TextView
+        android:id="@+id/tv_initials"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@drawable/shape_circle_secondary"
+        android:gravity="center"
+        style="@style/TextAppearance.NeonNoir.LabelMedium"
+        android:textColor="@color/on_surface"
+        tools:text="KR" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="14dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_actor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.NeonNoir.BodyMedium"
+            android:textColor="@color/on_surface"
+            tools:text="Keanu Reeves" />
+
+        <TextView
+            android:id="@+id/tv_character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            style="@style/TextAppearance.NeonNoir.LabelSmall"
+            android:textColor="@color/on_surface_variant"
+            tools:text="Kaelian Dax" />
+
+    </LinearLayout>
+
+</LinearLayout>

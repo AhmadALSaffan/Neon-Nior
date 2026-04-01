@@ -1,5 +1,6 @@
 package com.neonnoir.Data.mapper
 
+import com.neonnoir.Data.local.entity.WatchlistEntity
 import com.neonnoir.Data.remote.dto.OmdbMovieDto
 import com.neonnoir.Data.remote.dto.OmdbSearchItemDto
 import com.neonnoir.domain.model.Movie
@@ -45,4 +46,13 @@ object MovieMapper {
         if (url == "N/A") return ""
         return url.replace("SX300", "SX600")
     }
+
+    fun Movie.toEntity(): WatchlistEntity = WatchlistEntity(
+        imdbId  = imdbId,
+        title   = title,
+        year    = year,
+        poster  = poster,
+        genre   = genres.joinToString(", "),
+        rating  = imdbRating
+    )
 }

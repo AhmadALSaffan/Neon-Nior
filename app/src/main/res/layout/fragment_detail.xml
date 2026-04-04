@@ -14,7 +14,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="460dp"
+        android:layout_height="560dp"
         android:background="@color/surface"
         app:elevation="0dp">
 
@@ -67,9 +67,9 @@
 
                     <TextView
                         android:id="@+id/tv_genre_tag"
+                        style="@style/TextAppearance.NeonNoir.LabelCaps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        style="@style/TextAppearance.NeonNoir.LabelCaps"
                         android:textColor="@color/tertiary"
                         tools:text="SCI-FI" />
 
@@ -83,9 +83,9 @@
 
                     <TextView
                         android:id="@+id/tv_runtime_tag"
+                        style="@style/TextAppearance.NeonNoir.LabelCaps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        style="@style/TextAppearance.NeonNoir.LabelCaps"
                         android:textColor="@color/tertiary"
                         tools:text="2H 45M" />
 
@@ -99,14 +99,15 @@
 
                     <TextView
                         android:id="@+id/tv_year_tag"
+                        style="@style/TextAppearance.NeonNoir.LabelCaps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        style="@style/TextAppearance.NeonNoir.LabelCaps"
                         android:textColor="@color/tertiary"
                         tools:text="2024" />
 
                     <TextView
                         android:id="@+id/tv_rated"
+                        style="@style/TextAppearance.NeonNoir.LabelSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -115,7 +116,6 @@
                         android:paddingTop="2dp"
                         android:paddingEnd="7dp"
                         android:paddingBottom="2dp"
-                        style="@style/TextAppearance.NeonNoir.LabelSmall"
                         android:textColor="@color/tertiary"
                         tools:text="PG-13" />
 
@@ -124,12 +124,12 @@
                 <!-- Movie title -->
                 <TextView
                     android:id="@+id/tv_title"
+                    style="@style/TextAppearance.NeonNoir.DisplayLarge"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:maxLines="3"
                     android:ellipsize="end"
-                    style="@style/TextAppearance.NeonNoir.DisplayLarge"
+                    android:maxLines="3"
                     android:textColor="@color/on_surface"
                     tools:text="NEON GENESIS" />
 
@@ -144,26 +144,26 @@
                     <ImageView
                         android:layout_width="18dp"
                         android:layout_height="18dp"
+                        android:contentDescription="@null"
                         android:src="@drawable/ic_star"
-                        app:tint="@color/primary"
-                        android:contentDescription="@null" />
+                        app:tint="@color/primary" />
 
                     <TextView
                         android:id="@+id/tv_rating"
+                        style="@style/TextAppearance.NeonNoir.HeadlineSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        style="@style/TextAppearance.NeonNoir.HeadlineSmall"
                         android:textColor="@color/on_surface"
                         tools:text="8.4" />
 
                     <TextView
+                        style="@style/TextAppearance.NeonNoir.BodyMedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
-                        style="@style/TextAppearance.NeonNoir.BodyMedium"
-                        android:textColor="@color/on_surface_variant"
-                        android:text="/10" />
+                        android:text="/10"
+                        android:textColor="@color/on_surface_variant" />
 
                 </LinearLayout>
 

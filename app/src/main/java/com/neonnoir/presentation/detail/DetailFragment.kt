@@ -34,7 +34,6 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     private lateinit var castAdapter: CastAdapter
     private lateinit var relatedAdapter: RelatedMoviesAdapter
-
     // Inflates ViewBinding and returns root view
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -68,7 +67,9 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
             adapter      = relatedAdapter
             layoutManager = GridLayoutManager(requireContext(), 2)
             isNestedScrollingEnabled = false
+            addItemDecoration(MoreSpaceGridDecoration(2, 24, 24, true))
         }
+
     }
 
     // Observes uiState, watchlist state, and related movies from the ViewModel

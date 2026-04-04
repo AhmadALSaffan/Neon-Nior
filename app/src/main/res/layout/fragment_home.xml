@@ -110,6 +110,16 @@
                 android:id="@+id/header_trending"
                 layout="@layout/view_section_header" />
 
+            <ProgressBar
+                android:id="@+id/pb_trending"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_4"
+                android:layout_marginBottom="@dimen/spacing_4"
+                android:indeterminateTint="@color/primary"
+                android:visibility="visible" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_trending"
                 android:layout_width="match_parent"
@@ -119,6 +129,7 @@
                 android:orientation="horizontal"
                 android:paddingStart="@dimen/screen_padding_horizontal"
                 android:paddingEnd="@dimen/screen_padding_horizontal"
+                android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_movie_portrait" />
@@ -137,6 +148,16 @@
                 wrap_content with RecyclerView.WRAP_CONTENT trick.
                 We set a fixed height here for predictability: 4 tiles × (120dp + 2×12dp gap) = 288dp.
             -->
+            <ProgressBar
+                android:id="@+id/pb_genres"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_4"
+                android:layout_marginBottom="@dimen/spacing_4"
+                android:indeterminateTint="@color/primary"
+                android:visibility="visible" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_genres"
                 android:layout_width="match_parent"
@@ -145,6 +166,7 @@
                 android:layout_marginStart="@dimen/screen_padding_horizontal"
                 android:layout_marginEnd="@dimen/screen_padding_horizontal"
                 android:nestedScrollingEnabled="false"
+                android:visibility="gone"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_genre_tile" />
 
@@ -155,6 +177,16 @@
                 android:id="@+id/header_recent"
                 layout="@layout/view_section_header" />
 
+            <ProgressBar
+                android:id="@+id/pb_recent"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_4"
+                android:layout_marginBottom="@dimen/spacing_4"
+                android:indeterminateTint="@color/primary"
+                android:visibility="visible" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_recent"
                 android:layout_width="match_parent"
@@ -164,6 +196,7 @@
                 android:orientation="horizontal"
                 android:paddingStart="@dimen/screen_padding_horizontal"
                 android:paddingEnd="@dimen/screen_padding_horizontal"
+                android:visibility="gone"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_movie_portrait" />

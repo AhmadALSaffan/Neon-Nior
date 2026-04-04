@@ -121,26 +121,55 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
         viewModel.trendingMovies.observe(viewLifecycleOwner) { resource ->
-            if (resource is Resource.Success) {
-                trendingAdapter.submitList(resource.data)
+            when (resource) {
+                is Resource.Loading -> {
+                    binding.pbTrending.show()
+                    binding.rvTrending.hide()
+                }
+                is Resource.Success -> {
+                    binding.pbTrending.hide()
+                    binding.rvTrending.show()
+                    trendingAdapter.submitList(resource.data)
+                }
+                is Resource.Error -> {
+                    binding.pbTrending.hide()
+                    binding.rvTrending.show()
+                }
             }
         }
 
         viewModel.recentMovies.observe(viewLifecycleOwner) { resource ->
-            if (resource is Resource.Success) {
-                recentAdapter.submitList(resource.data)
+            when (resource) {
+                is Resource.Loading -> {
+                    binding.pbRecent.show()
+                    binding.rvRecent.hide()
+                }
+                is Resource.Success -> {
+                    binding.pbRecent.hide()
+                    binding.rvRecent.show()
+                    recentAdapter.submitList(resource.data)
+                }
+                is Resource.Error -> {
+                    binding.pbRecent.hide()
+                    binding.rvRecent.show()
+                }
             }
         }
 
         viewModel.genreItems.observe(viewLifecycleOwner) { items ->
-            genreAdapter.submitList(items)
+            if (items.isNotEmpty()) {
+                binding.pbGenres.hide()
+                binding.rvGenres.show()
+                genreAdapter.submitList(items)
+            }
         }
     }
 
     // Attaches click listeners to toolbar icons and hero action buttons
     private fun setupClickListeners() {
         binding.btnToolbarSearch.setOnClickListener {
-            findNavController().navigate(R.id.nav_search)
+            val action = HomeFragmentDirections.actionHomeToSearch("")
+            findNavController().navigate(action)
         }
         binding.btnMenu.setOnClickListener {
             // Drawer or bottom sheet — wire up once DrawerLayout is added

@@ -1,14 +1,259 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface"
     tools:context=".presentation.search.SearchFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- ─────────── TOOLBAR ─────────── -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/surface"
+        app:contentInsetStart="@dimen/screen_padding_horizontal">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Lumina Noir"
+            android:textColor="@color/primary"
+            style="@style/TextAppearance.NeonNoir.HeadlineMedium" />
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/avatar_sm"
+            android:layout_height="@dimen/avatar_sm"
+            android:layout_marginEnd="@dimen/screen_padding_horizontal"
+            android:background="@drawable/shape_circle"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_person"
+            android:contentDescription="@null" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <!-- ─────────── SEARCH BAR ROW ─────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/screen_padding_horizontal"
+        android:paddingEnd="@dimen/screen_padding_horizontal"
+        android:paddingTop="@dimen/spacing_2"
+        android:paddingBottom="@dimen/spacing_4"
+        android:gravity="center_vertical">
+
+        <!--
+            SearchEditText overrides onCreateInputConnection() to force
+            IME_FLAG_NO_EXTRACT_UI on every keyboard connection, which is
+            the only reliable way to suppress the IME extract-mode overlay.
+        -->
+        <com.neonnoir.presentation.search.SearchEditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/input_height"
+            android:layout_weight="1"
+            android:background="@drawable/bg_input_default"
+            android:hint="Search for movies, actors, or genres..."
+            android:textColorHint="@color/on_surface_variant"
+            android:textColor="@color/on_surface"
+            android:inputType="textNoSuggestions"
+            android:imeOptions="actionDone|flagNoExtractUi|flagNoFullscreen"
+            android:singleLine="true"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="@dimen/spacing_2"
+            android:drawableTint="@color/on_surface_variant"
+            style="@style/TextAppearance.NeonNoir.BodyMedium" />
+
+        <ImageButton
+            android:id="@+id/btn_filter"
+            android:layout_width="@dimen/button_height_compact"
+            android:layout_height="@dimen/button_height_compact"
+            android:layout_marginStart="@dimen/spacing_2"
+            android:background="@drawable/bg_input_default"
+            android:src="@drawable/ic_menu"
+            android:contentDescription="Filter"
+            app:tint="@color/on_surface_variant" />
+
+    </LinearLayout>
+
+    <!-- ─────────── CONTENT AREA ─────────── -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/surface">
+
+        <!-- ══ DEFAULT STATE ══ -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/ll_default_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/surface"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/spacing_12">
+
+                <!-- Recent searches header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/screen_padding_horizontal"
+                    android:paddingEnd="@dimen/screen_padding_horizontal"
+                    android:paddingTop="@dimen/spacing_4"
+                    android:paddingBottom="@dimen/spacing_3"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Recent Searches"
+                        style="@style/TextAppearance.NeonNoir.HeadlineSmall"
+                        android:textColor="@color/on_surface" />
+
+                    <TextView
+                        android:id="@+id/tv_clear_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Clear All"
+                        android:textColor="@color/primary"
+                        android:paddingStart="@dimen/spacing_3"
+                        android:paddingEnd="@dimen/spacing_1"
+                        android:paddingTop="@dimen/spacing_2"
+                        android:paddingBottom="@dimen/spacing_2"
+                        style="@style/TextAppearance.NeonNoir.LabelSmall" />
+
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:paddingStart="@dimen/screen_padding_horizontal"
+                    android:paddingEnd="@dimen/screen_padding_horizontal"
+                    android:paddingBottom="@dimen/spacing_3"
+                    android:clipToPadding="false">
+
+                    <LinearLayout
+                        android:id="@+id/ll_recent_chips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical" />
+
+                </HorizontalScrollView>
+
+                <!-- Explore Genres header -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/screen_padding_horizontal"
+                    android:paddingEnd="@dimen/screen_padding_horizontal"
+                    android:paddingTop="@dimen/spacing_4"
+                    android:paddingBottom="@dimen/spacing_3"
+                    android:text="Explore Genres"
+                    style="@style/TextAppearance.NeonNoir.HeadlineSmall"
+                    android:textColor="@color/on_surface" />
+
+                <!-- Genres loading spinner — visible until genre covers arrive -->
+                <ProgressBar
+                    android:id="@+id/pb_genres"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/spacing_4"
+                    android:layout_marginBottom="@dimen/spacing_4"
+                    android:indeterminateTint="@color/primary"
+                    android:visibility="visible" />
+
+                <!-- 2-column genre grid — hidden until covers load -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_genres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/card_gap_grid"
+                    android:paddingEnd="@dimen/card_gap_grid"
+                    android:nestedScrollingEnabled="false"
+                    android:clipToPadding="false"
+                    android:visibility="gone"
+                    tools:listitem="@layout/item_genre_tile" />
+
+                <!-- Popular for You header -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/screen_padding_horizontal"
+                    android:paddingEnd="@dimen/screen_padding_horizontal"
+                    android:paddingTop="@dimen/section_gap"
+                    android:paddingBottom="@dimen/spacing_3"
+                    android:text="Popular for You"
+                    style="@style/TextAppearance.NeonNoir.HeadlineSmall"
+                    android:textColor="@color/on_surface" />
+
+                <!-- Popular loading spinner — visible until movies arrive -->
+                <ProgressBar
+                    android:id="@+id/pb_popular"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/spacing_4"
+                    android:layout_marginBottom="@dimen/spacing_4"
+                    android:indeterminateTint="@color/primary"
+                    android:visibility="visible" />
+
+                <!-- Popular movies horizontal row — hidden until data arrives -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_popular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/screen_padding_horizontal"
+                    android:paddingEnd="@dimen/screen_padding_horizontal"
+                    android:nestedScrollingEnabled="false"
+                    android:clipToPadding="false"
+                    android:visibility="gone"
+                    tools:listitem="@layout/item_movie_portrait" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- ══ SEARCH RESULTS ══ -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_results"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/surface"
+            android:paddingStart="@dimen/card_gap_grid"
+            android:paddingEnd="@dimen/card_gap_grid"
+            android:paddingTop="@dimen/spacing_4"
+            android:paddingBottom="@dimen/spacing_12"
+            android:clipToPadding="false"
+            android:visibility="gone"
+            tools:listitem="@layout/item_movie_portrait" />
+
+        <!-- ══ SEARCH LOADING SPINNER ══ -->
+        <ProgressBar
+            android:id="@+id/pb_loading"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/primary"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>

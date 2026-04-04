@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/surface_container_low"
+    android:paddingStart="@dimen/screen_padding_horizontal"
+    android:paddingEnd="@dimen/screen_padding_horizontal"
+    android:paddingBottom="@dimen/spacing_12">
+
+    <!-- Drag handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/spacing_3"
+        android:layout_marginBottom="@dimen/spacing_4"
+        android:background="@color/outline_variant" />
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Filter Results"
+        style="@style/TextAppearance.NeonNoir.HeadlineMedium"
+        android:textColor="@color/on_surface"
+        android:paddingBottom="@dimen/spacing_5" />
+
+    <!-- TYPE label -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TYPE"
+        style="@style/TextAppearance.NeonNoir.LabelCaps"
+        android:textColor="@color/secondary"
+        android:paddingBottom="@dimen/spacing_2" />
+
+    <!-- Type radio group -->
+    <RadioGroup
+        android:id="@+id/rg_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/spacing_6">
+
+        <RadioButton
+            android:id="@+id/rb_type_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All"
+            android:textColor="@color/on_surface"
+            android:buttonTint="@color/primary"
+            android:checked="true"
+            android:layout_marginEnd="@dimen/spacing_4" />
+
+        <RadioButton
+            android:id="@+id/rb_type_movie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Movie"
+            android:textColor="@color/on_surface"
+            android:buttonTint="@color/primary"
+            android:layout_marginEnd="@dimen/spacing_4" />
+
+        <RadioButton
+            android:id="@+id/rb_type_series"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Series"
+            android:textColor="@color/on_surface"
+            android:buttonTint="@color/primary" />
+
+    </RadioGroup>
+
+    <!-- YEAR label -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="YEAR"
+        style="@style/TextAppearance.NeonNoir.LabelCaps"
+        android:textColor="@color/secondary"
+        android:paddingBottom="@dimen/spacing_2" />
+
+    <EditText
+        android:id="@+id/et_year"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/input_height"
+        android:background="@drawable/bg_input_default"
+        android:hint="e.g. 2023"
+        android:textColorHint="@color/on_surface_variant"
+        android:textColor="@color/on_surface"
+        android:inputType="number"
+        android:paddingStart="@dimen/spacing_4"
+        android:paddingEnd="@dimen/spacing_4"
+        android:layout_marginBottom="@dimen/spacing_6"
+        style="@style/TextAppearance.NeonNoir.BodyMedium" />
+
+    <!-- GENRE label -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GENRE"
+        style="@style/TextAppearance.NeonNoir.LabelCaps"
+        android:textColor="@color/secondary"
+        android:paddingBottom="@dimen/spacing_2" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group_genre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:singleSelection="true"
+        android:layout_marginBottom="@dimen/spacing_8">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_genre_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All"
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:checked="true" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_genre_scifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sci-Fi"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_genre_horror"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Horror"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_genre_drama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drama"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_genre_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Action"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_genre_thriller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thriller"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_genre_noir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Neo-Noir"
+            style="@style/Widget.MaterialComponents.Chip.Filter" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- Apply button -->
+    <Button
+        android:id="@+id/btn_apply_filters"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:background="@drawable/bg_button_primary"
+        android:text="APPLY FILTERS"
+        android:textColor="@color/on_primary"
+        app:backgroundTint="@null"
+        style="@style/TextAppearance.NeonNoir.Button" />
+
+</LinearLayout>

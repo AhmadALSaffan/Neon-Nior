@@ -33,4 +33,15 @@ object Editorial {
         "THRILLER" to "thriller",
         "NEO-NOIR" to "noir"
     )
+
+    // Curated cover movie IDs for genre tiles — one per genre, same order as GENRE_SEARCHES.
+    // These are chosen for visual impact and genre accuracy; fetched by ID so poster is guaranteed.
+    val GENRE_COVER_IDS = listOf(
+        "tt1856101",  // Blade Runner 2049    → SCI-FI
+        "tt5052448",  // Get Out              → HORROR
+        "tt0068646",  // The Godfather        → DRAMA
+        "tt1392190",  // Mad Max: Fury Road   → ACTION
+        "tt0114369",  // Se7en                → THRILLER
+        "tt0083658"   // Blade Runner (1982)  → NEO-NOIR
+    )
 }

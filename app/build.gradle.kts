@@ -125,6 +125,8 @@ dependencies {
     implementation("com.sun.mail:android-mail:1.6.7")
     implementation("com.sun.mail:android-activation:1.6.7")
     implementation("com.google.firebase:firebase-database-ktx")
+    implementation("com.google.firebase:firebase-storage-ktx")
+    implementation("androidx.exifinterface:exifinterface:1.3.7")
 }
 apply (plugin="com.google.gms.google-services")
 

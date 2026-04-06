@@ -112,6 +112,33 @@
         android:id="@+id/nav_profile"
         android:name="com.neonnoir.presentation.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profile_to_detail"
+            app:destination="@id/nav_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_profile_to_edit"
+            app:destination="@id/nav_edit_profile"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- EDIT PROFILE                            -->
+    <!-- ═══════════════════════════════════════ -->
+    <fragment
+        android:id="@+id/nav_edit_profile"
+        android:name="com.neonnoir.presentation.profile.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" />
 
 </navigation>

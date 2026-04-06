@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Download item — shows poster thumbnail, title, and download progress -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/surface_container_low"
+    android:padding="@dimen/spacing_4"
+    android:layout_marginBottom="@dimen/spacing_2">
+
+    <!-- Poster thumbnail -->
+    <ImageView
+        android:id="@+id/iv_poster"
+        android:layout_width="96dp"
+        android:layout_height="64dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null"
+        android:background="@color/surface_container"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <!-- Info + progress -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/spacing_4"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            style="@style/TextAppearance.NeonNoir.BodyMedium"
+            android:textColor="@color/on_surface"
+            tools:text="Interstellar Voyage" />
+
+        <ProgressBar
+            android:id="@+id/pb_download"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/progress_bar_height"
+            android:layout_marginTop="@dimen/spacing_2"
+            android:max="100"
+            android:progressTint="@color/primary"
+            android:progressBackgroundTint="@color/surface_container_highest"
+            tools:progress="65" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            style="@style/TextAppearance.NeonNoir.LabelSmall"
+            android:textColor="@color/on_surface_variant"
+            tools:text="65% • 1.2 GB remaining" />
+
+    </LinearLayout>
+
+</LinearLayout>

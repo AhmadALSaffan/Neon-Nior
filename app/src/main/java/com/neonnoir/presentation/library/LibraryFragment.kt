@@ -1,60 +1,199 @@
 package com.neonnoir.presentation.library
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.neonnoir.R
+import com.neonnoir.databinding.FragmentLibraryBinding
+import com.neonnoir.presentation.common.adapters.ContinueWatchingAdapter
+import com.neonnoir.presentation.common.adapters.WatchlistAdapter
+import com.neonnoir.util.hide
+import com.neonnoir.util.loadCurrentUserAvatar
+import com.neonnoir.util.show
+import dagger.hilt.android.AndroidEntryPoint
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LibraryFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class LibraryFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private var _binding: FragmentLibraryBinding? = null
+    private val binding get() = _binding!!
+
+    private val viewModel: LibraryViewModel by viewModels()
+
+    private lateinit var continueWatchingAdapter: ContinueWatchingAdapter
+    private lateinit var watchlistAdapter: WatchlistAdapter
+
+    // Current filter state: "all", "watchlist", "downloads"
+    private var activeFilter = "all"
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentLibraryBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupSectionHeaders()
+        setupRecyclerViews()
+        observeViewModel()
+        setupClickListeners()
+    }
+
+    private fun setupSectionHeaders() {
+        with(binding.headerContinue) {
+            tvSectionTitle.text = "Continue Watching"
+            tvViewAll.text = "View History"
+            tvViewAll.show()
+        }
+        with(binding.headerDownloads) {
+            tvSectionTitle.text = "Active Downloads"
+        }
+        with(binding.headerWatchlist) {
+            tvSectionTitle.text = "Your Watchlist"
+            tvSectionSubtitle.text = "Movies you've saved"
+            tvSectionSubtitle.show()
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_library, container, false)
+    private fun setupRecyclerViews() {
+        continueWatchingAdapter = ContinueWatchingAdapter { imdbId -> navigateToDetail(imdbId) }
+        binding.rvContinue.apply {
+            adapter = continueWatchingAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            setHasFixedSize(true)
+        }
+
+        watchlistAdapter = WatchlistAdapter { imdbId -> navigateToDetail(imdbId) }
+        binding.rvWatchlist.apply {
+            adapter = watchlistAdapter
+            layoutManager = GridLayoutManager(requireContext(), 2)
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LibraryFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LibraryFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private fun observeViewModel() {
+        viewModel.history.observe(viewLifecycleOwner) { items ->
+            if (items.isEmpty()) {
+                binding.rvContinue.hide()
+                binding.pbContinue.hide()
+                binding.emptyContinue.show()
+            } else {
+                binding.emptyContinue.hide()
+                binding.pbContinue.hide()
+                binding.rvContinue.show()
+                continueWatchingAdapter.submitList(items)
             }
+        }
+
+        viewModel.watchlist.observe(viewLifecycleOwner) { items ->
+            binding.pbWatchlist.hide()
+            if (items.isEmpty()) {
+                binding.rvWatchlist.hide()
+                binding.emptyWatchlist.show()
+            } else {
+                binding.emptyWatchlist.hide()
+                binding.rvWatchlist.show()
+                watchlistAdapter.submitList(items)
+            }
+        }
+    }
+
+    private fun setupClickListeners() {
+        binding.btnFilterAll.setOnClickListener { applyFilter("all") }
+        binding.btnFilterWatchlist.setOnClickListener { applyFilter("watchlist") }
+        binding.btnFilterDownloads.setOnClickListener { applyFilter("downloads") }
+
+        binding.btnToolbarSearch.setOnClickListener {
+            findNavController().navigate(R.id.nav_search)
+        }
+
+        binding.headerContinue.tvViewAll.setOnClickListener {
+            findNavController().navigate(R.id.nav_search)
+        }
+
+        binding.btnDiscoverMore.setOnClickListener {
+            findNavController().navigate(R.id.nav_search)
+        }
+    }
+
+    // Shows/hides sections based on the selected filter tab
+    private fun applyFilter(filter: String) {
+        activeFilter = filter
+        updateFilterButtons()
+
+        when (filter) {
+            "all" -> {
+                binding.sectionContinue.show()
+                binding.sectionDownloads.show()
+                binding.sectionWatchlist.show()
+            }
+            "watchlist" -> {
+                binding.sectionContinue.hide()
+                binding.sectionDownloads.hide()
+                binding.sectionWatchlist.show()
+            }
+            "downloads" -> {
+                binding.sectionContinue.hide()
+                binding.sectionDownloads.show()
+                binding.sectionWatchlist.hide()
+            }
+        }
+    }
+
+    // Updates filter button backgrounds to reflect the active selection
+    private fun updateFilterButtons() {
+        val activeRes   = R.drawable.bg_button_primary
+        val inactiveRes = R.drawable.bg_button_ghost
+
+        binding.btnFilterAll.setBackgroundResource(
+            if (activeFilter == "all") activeRes else inactiveRes
+        )
+        binding.btnFilterWatchlist.setBackgroundResource(
+            if (activeFilter == "watchlist") activeRes else inactiveRes
+        )
+        binding.btnFilterDownloads.setBackgroundResource(
+            if (activeFilter == "downloads") activeRes else inactiveRes
+        )
+
+        binding.btnFilterAll.setTextColor(
+            requireContext().getColor(
+                if (activeFilter == "all") R.color.on_primary else R.color.on_surface_variant
+            )
+        )
+        binding.btnFilterWatchlist.setTextColor(
+            requireContext().getColor(
+                if (activeFilter == "watchlist") R.color.on_primary else R.color.on_surface_variant
+            )
+        )
+        binding.btnFilterDownloads.setTextColor(
+            requireContext().getColor(
+                if (activeFilter == "downloads") R.color.on_primary else R.color.on_surface_variant
+            )
+        )
+    }
+
+    private fun navigateToDetail(imdbId: String) {
+        val action = LibraryFragmentDirections.actionLibraryToDetail(imdbId)
+        findNavController().navigate(action)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.ivAvatar.loadCurrentUserAvatar()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

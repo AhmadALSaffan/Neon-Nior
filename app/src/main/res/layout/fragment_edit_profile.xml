@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TOOLBAR                                     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingStart="4dp"
+            android:paddingEnd="8dp">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="@color/primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Edit Profile"
+                style="@style/TextAppearance.NeonNoir.HeadlineSmall"
+                android:textColor="@color/on_surface" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCROLLABLE CONTENT                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/spacing_8"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/screen_padding_horizontal"
+            android:paddingEnd="@dimen/screen_padding_horizontal">
+
+            <!-- ─────────────────────────────────── -->
+            <!-- PROFILE PHOTO                       -->
+            <!-- ─────────────────────────────────── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="@dimen/spacing_6"
+                android:paddingBottom="@dimen/spacing_8">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <!-- Avatar circle -->
+                    <ImageView
+                        android:id="@+id/iv_avatar"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@drawable/shape_avatar_ring"
+                        android:padding="4dp"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Profile photo"
+                        android:clipToOutline="true" />
+
+                    <!-- Edit button — bottom right -->
+                    <LinearLayout
+                        android:id="@+id/btn_change_photo"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginEnd="2dp"
+                        android:background="@drawable/bg_button_primary"
+                        android:gravity="center"
+                        android:elevation="4dp">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_camera"
+                            android:contentDescription="Change photo" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_3"
+                    android:text="CHANGE PHOTO"
+                    style="@style/TextAppearance.NeonNoir.LabelCaps"
+                    android:textColor="@color/on_surface_variant" />
+
+            </LinearLayout>
+
+            <!-- ─────────────────────────────────── -->
+            <!-- FORM FIELDS                         -->
+            <!-- ─────────────────────────────────── -->
+
+            <!-- Full Name -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_2"
+                android:text="FULL NAME"
+                style="@style/TextAppearance.NeonNoir.LabelCaps"
+                android:textColor="@color/secondary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_height"
+                android:layout_marginBottom="@dimen/spacing_5"
+                android:background="@drawable/bg_input_default"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/spacing_4"
+                android:paddingEnd="@dimen/spacing_4">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="@dimen/spacing_3"
+                    android:src="@drawable/ic_person"
+                    android:contentDescription="@null"
+                    app:tint="@color/on_surface_variant" />
+
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Your name"
+                    android:textColorHint="@color/on_surface_variant"
+                    android:textColor="@color/on_surface"
+                    android:inputType="textPersonName|textCapWords"
+                    android:imeOptions="actionNext"
+                    style="@style/TextAppearance.NeonNoir.BodyMedium" />
+
+            </LinearLayout>
+
+            <!-- Email Address -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_2"
+                android:text="EMAIL ADDRESS"
+                style="@style/TextAppearance.NeonNoir.LabelCaps"
+                android:textColor="@color/secondary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_height"
+                android:layout_marginBottom="@dimen/spacing_5"
+                android:background="@drawable/bg_input_default"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/spacing_4"
+                android:paddingEnd="@dimen/spacing_4">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="@dimen/spacing_3"
+                    android:src="@drawable/ic_email"
+                    android:contentDescription="@null"
+                    app:tint="@color/on_surface_variant" />
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Your email"
+                    android:textColorHint="@color/on_surface_variant"
+                    android:textColor="@color/on_surface"
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionNext"
+                    style="@style/TextAppearance.NeonNoir.BodyMedium" />
+
+            </LinearLayout>
+
+            <!-- Bio -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_2"
+                android:text="BIO"
+                style="@style/TextAppearance.NeonNoir.LabelCaps"
+                android:textColor="@color/secondary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_5"
+                android:background="@drawable/bg_input_default"
+                android:gravity="top"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/spacing_4"
+                android:paddingEnd="@dimen/spacing_4"
+                android:paddingTop="@dimen/spacing_4"
+                android:paddingBottom="@dimen/spacing_4">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="@dimen/spacing_3"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/ic_notes"
+                    android:contentDescription="@null"
+                    app:tint="@color/on_surface_variant" />
+
+                <EditText
+                    android:id="@+id/et_bio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minLines="3"
+                    android:maxLines="5"
+                    android:background="@android:color/transparent"
+                    android:hint="Tell us about yourself"
+                    android:textColorHint="@color/on_surface_variant"
+                    android:textColor="@color/on_surface"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:imeOptions="actionNext"
+                    android:gravity="top"
+                    style="@style/TextAppearance.NeonNoir.BodyMedium" />
+
+            </LinearLayout>
+
+            <!-- Phone Number -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_2"
+                android:text="PHONE NUMBER"
+                style="@style/TextAppearance.NeonNoir.LabelCaps"
+                android:textColor="@color/secondary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/input_height"
+                android:layout_marginBottom="@dimen/spacing_5"
+                android:background="@drawable/bg_input_default"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/spacing_4"
+                android:paddingEnd="@dimen/spacing_4">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="@dimen/spacing_3"
+                    android:src="@drawable/ic_phone"
+                    android:contentDescription="@null"
+                    app:tint="@color/on_surface_variant" />
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Your phone number"
+                    android:textColorHint="@color/on_surface_variant"
+                    android:textColor="@color/on_surface"
+                    android:inputType="phone"
+                    android:imeOptions="actionDone"
+                    style="@style/TextAppearance.NeonNoir.BodyMedium" />
+
+            </LinearLayout>
+
+            <!-- ─────────────────────────────────── -->
+            <!-- ACCOUNT SECURITY                    -->
+            <!-- ─────────────────────────────────── -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_6"
+                android:layout_marginBottom="@dimen/spacing_4"
+                android:text="ACCOUNT SECURITY"
+                style="@style/TextAppearance.NeonNoir.LabelCaps"
+                android:textColor="@color/on_surface_variant" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card">
+
+                <!-- Change Password -->
+                <LinearLayout
+                    android:id="@+id/row_change_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/spacing_5"
+                    android:background="?attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_icon_secondary"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_lock"
+                            app:tint="@color/secondary"
+                            android:contentDescription="@null" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_4"
+                        android:text="Change Password"
+                        style="@style/TextAppearance.NeonNoir.BodyMedium"
+                        android:textColor="@color/on_surface" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_back"
+                        android:rotation="180"
+                        app:tint="@color/on_surface_variant"
+                        android:contentDescription="@null" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ghost_border" />
+
+                <!-- Two-Factor Authentication -->
+                <LinearLayout
+                    android:id="@+id/row_two_factor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/spacing_5"
+                    android:background="?attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_icon_tertiary"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_shield"
+                            app:tint="@color/tertiary"
+                            android:contentDescription="@null" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_4"
+                        android:text="Two-Factor Authentication"
+                        style="@style/TextAppearance.NeonNoir.BodyMedium"
+                        android:textColor="@color/on_surface" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_back"
+                        android:rotation="180"
+                        app:tint="@color/on_surface_variant"
+                        android:contentDescription="@null" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ─────────────────────────────────── -->
+            <!-- ACTIONS                             -->
+            <!-- ─────────────────────────────────── -->
+
+            <!-- Upload progress -->
+            <ProgressBar
+                android:id="@+id/pb_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/spacing_8"
+                android:indeterminateTint="@color/primary"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/spacing_8"
+                android:background="@drawable/bg_button_primary"
+                android:text="SAVE CHANGES"
+                android:textColor="@color/on_primary"
+                app:backgroundTint="@null"
+                style="@style/TextAppearance.NeonNoir.Button" />
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/spacing_3"
+                android:layout_marginBottom="@dimen/spacing_6"
+                android:background="@android:color/transparent"
+                android:text="Cancel"
+                android:textColor="@color/on_surface_variant"
+                app:backgroundTint="@null"
+                style="@style/TextAppearance.NeonNoir.Button" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

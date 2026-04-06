@@ -23,6 +23,7 @@ import com.neonnoir.presentation.common.adapters.GenreTileAdapter
 import com.neonnoir.presentation.common.adapters.SearchResultAdapter
 import com.neonnoir.util.Resource
 import com.neonnoir.util.hide
+import com.neonnoir.util.loadCurrentUserAvatar
 import com.neonnoir.util.show
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -243,6 +244,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private fun navigateToDetail(imdbId: String) {
         val action = SearchFragmentDirections.actionSearchToDetail(imdbId)
         findNavController().navigate(action)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.ivAvatar.loadCurrentUserAvatar()
     }
 
     override fun onDestroyView() {

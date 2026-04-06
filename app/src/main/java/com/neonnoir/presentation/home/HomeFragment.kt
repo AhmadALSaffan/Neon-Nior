@@ -21,6 +21,7 @@ import com.neonnoir.presentation.home.HomeViewModel
 import com.neonnoir.util.Resource
 import com.neonnoir.util.hide
 import com.neonnoir.util.loadBackdrop
+import com.neonnoir.util.loadCurrentUserAvatar
 import com.neonnoir.util.show
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -234,6 +235,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun navigateToSearch(keyword: String) {
         val action = HomeFragmentDirections.actionHomeToSearch(keyword)
         findNavController().navigate(action)
+    }
+
+    // Reloads the avatar each time the fragment comes back to the foreground
+    // so changes made in EditProfileFragment are reflected immediately
+    override fun onResume() {
+        super.onResume()
+        binding.ivAvatar.loadCurrentUserAvatar()
     }
 
     // Nulls out the binding reference to prevent memory leaks after view destruction

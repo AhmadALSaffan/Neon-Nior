@@ -1,14 +1,318 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/surface"
     tools:context=".presentation.library.LibraryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- APP BAR                                     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingStart="4dp"
+            android:paddingEnd="8dp">
+
+            <!-- Section title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Library"
+                style="@style/TextAppearance.NeonNoir.HeadlineSmall"
+                android:textColor="@color/primary" />
+
+            <!-- Right-side actions -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_toolbar_search"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Search"
+                    android:src="@drawable/ic_search"
+                    app:tint="@color/on_surface" />
+
+                <ImageView
+                    android:id="@+id/iv_avatar"
+                    android:layout_width="@dimen/avatar_sm"
+                    android:layout_height="@dimen/avatar_sm"
+                    android:layout_marginStart="4dp"
+                    android:background="@drawable/shape_circle"
+                    android:contentDescription="Profile"
+                    android:scaleType="centerCrop" />
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SCROLLABLE CONTENT                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/bottom_nav_height"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ─────────────────────────────────── -->
+            <!-- FILTER PILLS                        -->
+            <!-- ─────────────────────────────────── -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:paddingStart="@dimen/screen_padding_horizontal"
+                android:paddingEnd="@dimen/screen_padding_horizontal"
+                android:paddingTop="@dimen/spacing_4"
+                android:paddingBottom="@dimen/spacing_2">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <Button
+                        android:id="@+id/btn_filter_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height_compact"
+                        android:paddingStart="@dimen/spacing_6"
+                        android:paddingEnd="@dimen/spacing_6"
+                        android:text="All"
+                        android:textColor="@color/on_primary"
+                        android:background="@drawable/bg_button_primary"
+                        app:backgroundTint="@null"
+                        style="@style/TextAppearance.NeonNoir.Button"
+                        android:layout_marginEnd="@dimen/spacing_2" />
+
+                    <Button
+                        android:id="@+id/btn_filter_watchlist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height_compact"
+                        android:paddingStart="@dimen/spacing_6"
+                        android:paddingEnd="@dimen/spacing_6"
+                        android:text="Watchlist"
+                        android:textColor="@color/on_surface_variant"
+                        android:background="@drawable/bg_button_ghost"
+                        app:backgroundTint="@null"
+                        style="@style/TextAppearance.NeonNoir.Button"
+                        android:layout_marginEnd="@dimen/spacing_2" />
+
+                    <Button
+                        android:id="@+id/btn_filter_downloads"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/button_height_compact"
+                        android:paddingStart="@dimen/spacing_6"
+                        android:paddingEnd="@dimen/spacing_6"
+                        android:text="Downloads"
+                        android:textColor="@color/on_surface_variant"
+                        android:background="@drawable/bg_button_ghost"
+                        app:backgroundTint="@null"
+                        style="@style/TextAppearance.NeonNoir.Button" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <!-- ─────────────────────────────────── -->
+            <!-- CONTINUE WATCHING SECTION           -->
+            <!-- ─────────────────────────────────── -->
+            <LinearLayout
+                android:id="@+id/section_continue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/header_continue"
+                    layout="@layout/view_section_header" />
+
+                <ProgressBar
+                    android:id="@+id/pb_continue"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/spacing_4"
+                    android:layout_marginBottom="@dimen/spacing_4"
+                    android:indeterminateTint="@color/primary"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_continue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/row_gap"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/screen_padding_horizontal"
+                    android:paddingEnd="@dimen/screen_padding_horizontal"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                <!-- Empty state for Continue Watching -->
+                <LinearLayout
+                    android:id="@+id/empty_continue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/spacing_6"
+                    android:paddingBottom="@dimen/spacing_4"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nothing in progress yet"
+                        style="@style/TextAppearance.NeonNoir.BodyMedium"
+                        android:textColor="@color/on_surface_variant" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ─────────────────────────────────── -->
+            <!-- ACTIVE DOWNLOADS SECTION            -->
+            <!-- ─────────────────────────────────── -->
+            <LinearLayout
+                android:id="@+id/section_downloads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/header_downloads"
+                    layout="@layout/view_section_header" />
+
+                <!-- Empty state for Downloads (always shown — no real download engine) -->
+                <LinearLayout
+                    android:id="@+id/empty_downloads"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/spacing_6"
+                    android:paddingBottom="@dimen/spacing_4">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No active downloads"
+                        style="@style/TextAppearance.NeonNoir.BodyMedium"
+                        android:textColor="@color/on_surface_variant" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ─────────────────────────────────── -->
+            <!-- YOUR WATCHLIST SECTION              -->
+            <!-- ─────────────────────────────────── -->
+            <LinearLayout
+                android:id="@+id/section_watchlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/header_watchlist"
+                    layout="@layout/view_section_header" />
+
+                <ProgressBar
+                    android:id="@+id/pb_watchlist"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/spacing_4"
+                    android:layout_marginBottom="@dimen/spacing_4"
+                    android:indeterminateTint="@color/primary"
+                    android:visibility="visible" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_watchlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/row_gap"
+                    android:layout_marginStart="@dimen/screen_padding_horizontal"
+                    android:layout_marginEnd="@dimen/screen_padding_horizontal"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="gone" />
+
+                <!-- Empty state for Watchlist -->
+                <LinearLayout
+                    android:id="@+id/empty_watchlist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/spacing_8"
+                    android:paddingBottom="@dimen/spacing_6"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No favorites yet"
+                        style="@style/TextAppearance.NeonNoir.HeadlineSmall"
+                        android:textColor="@color/on_surface"
+                        android:layout_marginBottom="@dimen/spacing_2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Movies you save will appear here"
+                        style="@style/TextAppearance.NeonNoir.BodyMedium"
+                        android:textColor="@color/on_surface_variant" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ─────────────────────────────────── -->
+            <!-- DISCOVER MORE BUTTON                -->
+            <!-- ─────────────────────────────────── -->
+            <Button
+                android:id="@+id/btn_discover_more"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginStart="@dimen/screen_padding_horizontal"
+                android:layout_marginEnd="@dimen/screen_padding_horizontal"
+                android:layout_marginTop="@dimen/section_gap"
+                android:layout_marginBottom="@dimen/section_gap"
+                android:text="DISCOVER MORE"
+                android:textColor="@color/primary"
+                android:background="@drawable/bg_button_ghost"
+                app:backgroundTint="@null"
+                style="@style/TextAppearance.NeonNoir.Button" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

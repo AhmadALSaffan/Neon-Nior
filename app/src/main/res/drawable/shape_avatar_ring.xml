@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Gradient ring used as background for the profile avatar container -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <gradient
+        android:type="sweep"
+        android:startColor="@color/primary"
+        android:centerColor="@color/secondary"
+        android:endColor="@color/tertiary" />
+</shape>

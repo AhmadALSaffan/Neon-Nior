@@ -10,6 +10,7 @@
 [![MVVM](https://img.shields.io/badge/Architecture-MVVM-FF8B9B?style=flat-square)](#architecture)
 [![OMDB API](https://img.shields.io/badge/API-OMDB-81ECFF?style=flat-square)](https://www.omdbapi.com/)
 [![Firebase](https://img.shields.io/badge/Auth-Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)](https://firebase.google.com/)
+[![Status](https://img.shields.io/badge/Status-In%20Development-orange?style=flat-square)](#)
 
 </div>
 

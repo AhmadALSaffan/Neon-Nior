@@ -24,6 +24,7 @@
 > Color palette: `#0E0E11` base · `#FF8B9B` pink · `#A98BFF` purple · `#81ECFF` cyan
 
 ---
+<img width="100%" height="600" alt="animate_my_logo (3)" src="https://github.com/user-attachments/assets/14730584-98f7-442f-9d5e-dac2ae9639c8" />
 
 ## Screenshots
 

@@ -13,6 +13,21 @@
 [![Status](https://img.shields.io/badge/Status-In%20Development-orange?style=flat-square)](#)
 
 </div>
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" style="background:#1a1a1a; border-radius:24px; padding:12px; border: 2px solid #333;">
+        <img
+          src="https://github.com/user-attachments/assets/e765906c-bcbc-450c-bfa6-3dc437075e91"
+          alt="Yalla Khedma app demo"
+          width="360"
+          style="border-radius:16px; display:block;"
+        />
+      </td>
+    </tr>
+  </table>
+</div> 
+
 
 ---
 
@@ -24,7 +39,6 @@
 > Color palette: `#0E0E11` base · `#FF8B9B` pink · `#A98BFF` purple · `#81ECFF` cyan
 
 ---
-<img width="100%" height="600" alt="animate_my_logo (3)" src="https://github.com/user-attachments/assets/14730584-98f7-442f-9d5e-dac2ae9639c8" />
 
 ## Screenshots
 

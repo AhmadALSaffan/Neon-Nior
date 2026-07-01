@@ -44,7 +44,7 @@
 
 | Home | Detail | Search | Library |
 |---|---|---|---|
-| <img src="https://ik.imagekit.io/qeitebnxx/Screenshot_20260401_135121_Neon%20Noir.jpg" width="110%" style="vertical-align: top"> | <img src="https://ik.imagekit.io/qeitebnxx/Screenshot-20260401-141353-Neon.jpg" width="100%" style="vertical-align: top"> | <img src="https://ik.imagekit.io/qeitebnxx/Screenshot_20260404_171715_Neon%20Noir.jpg" width="100%" alt="Search placeholder"> | <img src="https://ik.imagekit.io/qeitebnxx/Screenshot_20260406_231035_Neon%20Noir.jpg" width="100%" alt="Library placeholder"> |
+| <img src="https://ik.imagekit.io/qeitebnxx/Noen%20Noir/home.png" width="100%" style="vertical-align: top"> | <img src="https://ik.imagekit.io/qeitebnxx/Noen%20Noir/search.png" width="100%" style="vertical-align: top"> | <img src="https://ik.imagekit.io/qeitebnxx/Noen%20Noir/library.png" width="100%" alt="Search placeholder"> | <img src="https://ik.imagekit.io/qeitebnxx/Noen%20Noir/profile.png" width="100%" alt="Library placeholder"> |
 ---
 
 ## Features
